@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Cadastro de Produtos</title>
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+	<script type="../js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<!-- Inserindo uma logo no site -->
+	<nav class="navbar navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">
+			<img src="/images/youtube.png"
+			width="600" height="300">
+		</a>
+	</nav>
+	
+	<!-- aqui vai o formulario de cadastro -->
+	<form action="/produto" method="POST" class="form-horizontal" th:object="${produto}">
+	
+		<!-- aqi vai a descricao -->
+		<input type="hidden" th:field="*{id}" />
+		<div class="form-group row">
+			<label class="col-4 col-form-Label" for="descricao">Descrição</label>
+			<div class="col-8">
+				<input id="descricao" name="descricao"  type="text" class="form-control" required="required" th:field="*{descricao}"/>
+			</div>	
+		</div>
+		<!-- encerra o codigo da descricao -->
+		<!-- aqi vai a marca -->
+		<div class="form-group row">
+			<label class="col-4 col-form-Label" for="marca">Marca</label>
+			<div class="col-8">
+				<input id="marca" name="marca"  type="text" class="form-control" required="required" th:field="*{marca}"/>
+			</div>	
+		</div>
+		<!-- encerra o codigo da marca -->
+			<!-- aqi vai a preco -->
+		<div class="form-group row">
+			<label class="col-4 col-form-Label" for="preco">Preço</label>
+			<div class="col-8">
+				<input id="preco" name="preco"  type="number" class="form-control" required="required" th:field="*{preco}"/>
+			</div>	
+		</div>
+		<!-- encerra o codigo da preco -->
+		<!-- codigo botao salvar -->
+		<div class="form-group row">
+			<div class="offset-4 col-8">
+				<button name="submit" type="submit" class="btn btn-primary">Salvar</button>
+				<a th:href="@{/produto/consulta}">
+				<button name="Pesquisar" type="button" class="btn btn-primary">Pesquisar</button>
+				</a>
+			</div>
+		</div>
+		<!-- termina o codigo botao salvar -->
+	</form>
+	<!--
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	-->
+</body>
+</html>
